@@ -47,9 +47,9 @@ def convert(message):
                     raise extensions.APIException(f'Не удалось обработать валюту: {quote}')
                 request = extensions.Request(base, quote, amount)
                 if base == quote:
-                    raise extensions.APIException(f'Вы ввели одинаковые валюты!')
+                    raise extensions.APIException(f'Вы ввели одинаковые валюты')
                 if not amount.isdigit():
-                    raise extensions.APIException(f'Не удалось обработать количество: {amount}!')
+                    raise extensions.APIException(f'Не удалось обработать количество: {amount}')
                 bot.send_message(message.chat.id,
                                  f"{amount} {base.upper()} в {quote.upper()} составляет - {request.get_price()}")
             else:
